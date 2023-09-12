@@ -23,10 +23,17 @@ export function fetchBreeds() {
       }));
     })
     .catch(error => {
-      // Notiflix.Notify.failure(
-      //   'Oops! Something went wrong! Try reloading the page!'
-      // );
-      //console.error('Error', error);
-      throw error;
+      console.log(error);
+    });
+}
+
+export function fetchCatByBreed(breedId) {
+  return api
+    .get(`/images/search?breed_ids=${breedId}`)
+    .then(response => {
+      return response.data[0];
+    })
+    .catch(error => {
+      console.log(error);
     });
 }
